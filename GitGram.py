@@ -20,8 +20,6 @@ if ENV:
     BOT_TOKEN = environ.get('BOT_TOKEN', None)
     PROJECT_NAME = environ.get('PROJECT_NAME', None)
     ip_addr = environ.get('APP_URL', None)
-    # You kanged our project without forking it, we'll get you DMCA'd.
-    GIT_REPO_URL = environ.get('GIT_REPO_URL', "https://github.com/MadeByThePinsHub/GitGram")
 else:
     BOT_TOKEN = config.BOT_TOKEN
     PROJECT_NAME = config.PROJECT_NAME
@@ -31,14 +29,14 @@ else:
 updater = Updater(token=BOT_TOKEN, workers=1)
 dispatcher = updater.dispatcher
 
-print("If you need more help, join @GitGramChat in Telegram.")
+print("successfully deployed)
 
 
 def start(_bot, update):
     """/start message for bot"""
     message = update.effective_message
     message.reply_text(
-        f"This is the Updates watcher for {PROJECT_NAME}. I am just notify users about what's happen on their Git repositories thru webhooks.\n\nYou need to [self-host](https://waa.ai/GitGram) or see /help to use this bot on your groups.",
+        f"This is the Updates watcher for {PROJECT_NAME}. I am just notify users about what's happen on their Git repositories thru webhooks.\n\nsee /help to use this bot on your groups.",
         parse_mode="markdown")
 
 
@@ -46,7 +44,7 @@ def help(_bot, update):
     """/help message for the bot"""
     message = update.effective_message
     message.reply_text(
-        f"*Available Commands*\n\n`/connect` - Setup how to connect this chat to receive Git activity notifications.\n`/support` - Get links to get support if you're stuck.\n`/source` - Get the Git repository URL.",
+        f"*Available Commands*\n\n`/connect` - Setup how to connect this chat to receive Git activity notifications.\n`/support` - Get links to get support if you're stuck.\n`.",
         parse_mode="markdown"
     )
 
@@ -55,16 +53,16 @@ def support(_bot, update):
     """Links to Support"""
     message = update.effective_message
     message.reply_text(
-        f"*Getting Support*\n\nTo get support in using the bot, join [the GitGram support](https://t.me/GitGramChat).",
+        f"*Getting Support*\n\nTo get support in using the bot, join [Lion X support](https://t.me/LionXsupport).",
         parse_mode="markdown"
     )
 
 
-def source(_bot, update):
+def father(_bot, update):
     """Link to Source"""
     message = update.effective_message
     message.reply_text(
-        f"*Source*:\n[GitGram Repo](https://waa.ai/GitGram).",
+        f"**My father** (ShashanK)(t.me/Shashankxd) is my father.",
         parse_mode="markdown"
     )
 
@@ -80,7 +78,6 @@ def getSourceCodeLink(_bot, update):
 start_handler = CommandHandler("start", start)
 help_handler = CommandHandler("help", help)
 supportCmd = CommandHandler("support", support)
-sourcecode = CommandHandler("source", source)
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
